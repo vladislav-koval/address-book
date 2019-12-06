@@ -1,12 +1,19 @@
-import React, {Fragment} from 'react';
-import Work from "./component/Work";
+import React from 'react';
+import {BrowserRouter, Route} from 'react-router-dom';
+import createBrowserHistory from 'history/createBrowserHistory';
+import TablePage from "./component/TablePage";
+import Auth from "./component/Auth";
+
+const history = createBrowserHistory();
 
 
 function App() {
     return (
-        <Fragment>
-            <Work/>
-        </Fragment>
+        <BrowserRouter history={history}>
+            <Route path="/" exact component={Auth}/>
+            <Route path="/addresses" component={TablePage}/>
+        </BrowserRouter>
+
     );
 }
 

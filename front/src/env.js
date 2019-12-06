@@ -1,5 +1,6 @@
 const env = {
-    isAdmin : true
+    isAdmin : true,
+
 };
 
 export default env;
