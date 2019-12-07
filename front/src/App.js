@@ -10,8 +10,8 @@ const history = createBrowserHistory();
 function App() {
     return (
         <BrowserRouter history={history}>
-            <Route path="/" exact component={Auth}/>
-            <Route path="/addresses" component={TablePage}/>
+            <Route path="/login" component={Auth}/>
+            <Route path="/" exact component={TablePage}/>
         </BrowserRouter>
 
     );

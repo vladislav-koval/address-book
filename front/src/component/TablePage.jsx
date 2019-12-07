@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from "react";
+import React, {Component} from "react";
 import Header from "./Header";
 import Table from "./Table";
 import Modal from "./modals/Modal";
@@ -17,13 +17,11 @@ class TablePage extends Component {
 
     render() {
         return (
-            <Fragment>
-                <ModalStateContext.Provider value={this.state}>
-                    <Header/>
-                    <Table/>
-                    <Modal/>
-                </ModalStateContext.Provider>
-            </Fragment>
+            <ModalStateContext.Provider value={this.state}>
+                <Header/>
+                <Table/>
+                <Modal/>
+            </ModalStateContext.Provider>
         );
     }
 }
