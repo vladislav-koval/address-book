@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e27b27de-f088-4dd2-80be-1fd96fba24a0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../address-book-java/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../address-book-java/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../address-book-java/src/main/java/com/vkoval/addressbook/security/BasicAuthenticationProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../address-book-java/src/main/java/com/vkoval/addressbook/security/SpringSecurityConfigurationBasicAuth.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../address-book-java/src/main/java/com/vkoval/addressbook/web/WebConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/front.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.env.local" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../address-book-java/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../address-book-java/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/public/jquery-3.4.1.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/jquery-3.4.1.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/public/logo192.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/logo192.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/public/logo512.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/logo512.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/public/robots.txt" beforeDir="false" afterPath="$PROJECT_DIR$/public/robots.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/public/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/component/Auth.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Auth.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/component/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/component/Table.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Table.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/component/TablePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/TablePage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/component/UserRow.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/UserRow.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/component/modals/AddAdminModal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/modals/AddAdminModal.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/component/modals/AddCategoryModal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/modals/AddCategoryModal.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/component/modals/AddUserModal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/modals/AddUserModal.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/component/modals/Modal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/modals/Modal.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/component/modals/ModalStateContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/modals/ModalStateContext.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/component/modals/Portal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/modals/Portal.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/component/modals/SearchModal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/modals/SearchModal.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/entity/Category.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Category.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/entity/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/User.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/env.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/env.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/img/modal-close.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/modal-close.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/service/ApiService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/ApiService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../address-book-java/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/../address-book-java/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../address-book-java/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/.env.local" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/vkoval/addressbook/AddressBookApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../address-book-java/src/main/java/com/vkoval/addressbook/AddressBookApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/vkoval/addressbook/controller/MainController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/vkoval/addressbook/dao/AddressDataRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../address-book-java/src/main/java/com/vkoval/addressbook/dao/AddressDataRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/vkoval/addressbook/dao/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../address-book-java/src/main/java/com/vkoval/addressbook/dao/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/vkoval/addressbook/entity/address/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/../address-book-java/src/main/java/com/vkoval/addressbook/entity/address/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/vkoval/addressbook/entity/address/AddressData.java" beforeDir="false" afterPath="$PROJECT_DIR$/../address-book-java/src/main/java/com/vkoval/addressbook/entity/address/AddressData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/vkoval/addressbook/entity/address/PhoneNumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/../address-book-java/src/main/java/com/vkoval/addressbook/entity/address/PhoneNumber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/vkoval/addressbook/entity/user/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/../address-book-java/src/main/java/com/vkoval/addressbook/entity/user/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/vkoval/addressbook/entity/user/RoleIntegerConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../address-book-java/src/main/java/com/vkoval/addressbook/entity/user/RoleIntegerConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/vkoval/addressbook/entity/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../address-book-java/src/main/java/com/vkoval/addressbook/entity/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/com/vkoval/addressbook/entity/user/UserAuthDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/../address-book-java/src/main/java/com/vkoval/addressbook/entity/user/UserAuthDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../address-book-java/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/test/java/com/vkoval/addressbook/AddressBookApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../address-book-java/src/test/java/com/vkoval/addressbook/AddressBookApplicationTests.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1UkPVCkScJZu0aY6NQZRZc4oLrB" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e27b27de-f088-4dd2-80be-1fd96fba24a0" name="Default Changelist" comment="" />
+      <created>1575897641090</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1575897641090</updated>
+      <workItem from="1575897658341" duration="189000" />
+      <workItem from="1575909933523" duration="370000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="769" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1575910461358">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="769" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1575910461358" />
+  </component>
+</project>
