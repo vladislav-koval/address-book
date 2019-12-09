@@ -1,19 +1,18 @@
 import React from 'react';
-import {BrowserRouter, Route} from 'react-router-dom';
-import createBrowserHistory from 'history/createBrowserHistory';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import TablePage from "./component/TablePage";
 import Auth from "./component/Auth";
-
-const history = createBrowserHistory();
-
+import AuthenticatedRoute from "./component/AuthenticatedRoute";
 
 function App() {
     return (
-        <BrowserRouter history={history}>
-            <Route path="/login" component={Auth}/>
-            <Route path="/" exact component={TablePage}/>
-        </BrowserRouter>
-
+        <Router>
+            <Switch>
+                <Route path="/" exact component={Auth}/>
+                <Route path="/login" exact component={Auth}/>
+                <AuthenticatedRoute path="/courses" exact component={TablePage}/>
+            </Switch>
+        </Router>
     );
 }
 
