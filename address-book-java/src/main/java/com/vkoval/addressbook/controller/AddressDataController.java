@@ -29,6 +29,10 @@ public class AddressDataController {
         if (data == null) {
             return "Пустой запрос";
         }
+        String validationError = validateAddressData(data);
+        if (!StringUtils.isEmpty(validationError)) {
+            return validationError;
+        }
         Category category = data.getCategory();
         if (category != null) {
             String name = category.getName();
@@ -39,7 +43,7 @@ public class AddressDataController {
                 if (updatedCategory == null) {
                     return "Категория не найдена";
                 }
-                data.setCategory(category);
+                data.setCategory(updatedCategory);
             }
         }
         addressDataRepository.save(data);
@@ -51,6 +55,11 @@ public class AddressDataController {
         if (data == null) {
             return "Пустой запрос";
         }
+        String validationError = validateAddressData(data);
+        if (!StringUtils.isEmpty(validationError)) {
+            return validationError;
+        }
+
         if (categoryParamIsNotNull(data.getCategory())) {
             Category category = categoryRepository.findByName(data.getCategory().getName());
             if (category == null) {
@@ -62,6 +71,32 @@ public class AddressDataController {
         }
         addressDataRepository.save(data);
         return null;
+    }
+
+    private String validateAddressData(AddressData addressData) {
+        StringBuilder errorBuilder = new StringBuilder();
+        if (StringUtils.isEmpty(addressData.getName())) {
+            errorBuilder.append("Поле имени не может быть пустым\n");
+        }
+        if (StringUtils.isEmpty(addressData.getSecondName())) {
+            errorBuilder.append("Поле фамилии не может быть пустым\n");
+        }
+        if (StringUtils.isEmpty(addressData.getPatronymic())) {
+            errorBuilder.append("Поле отчества не может быть пустым\n");
+        }
+        if (StringUtils.isEmpty(addressData.getAddress().getStreet())) {
+            errorBuilder.append("Поле улицы не может быть пустым\n");
+        }
+        if (StringUtils.isEmpty(addressData.getAddress().getHouseName())) {
+            errorBuilder.append("Поле номера дома не может быть пустым\n");
+        }
+        if (StringUtils.isEmpty(addressData.getAddress().getApartment())) {
+            errorBuilder.append("Поле номера квартиры не может быть пустым\n");
+        }
+        if (StringUtils.isEmpty(addressData.getPhoneNumber())) {
+            errorBuilder.append("Поле номера телефона не может быть пустым\n");
+        }
+        return errorBuilder.toString();
     }
 
     private boolean categoryParamIsNotNull(Category category) {

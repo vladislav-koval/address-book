@@ -20,7 +20,7 @@ public class AddressData {
     @Embedded
     private Address address;
     @Column
-    private String  phoneNumber;
+    private String phoneNumber;
     @ManyToOne
     private Category category;
 }
