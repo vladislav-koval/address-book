@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from "react";
-import UserRow from "./UserRow";
+import AddressDataRow from "./AddressDataRow";
 import AddressDataService from "../service/AddressDataService";
 
 class Table extends Component {
@@ -13,16 +13,23 @@ class Table extends Component {
     renderSubs() {
         return this.state.addressDatas.map(sub =>
             <Fragment key={sub.id}>
-                <UserRow user={sub}/>
+                <AddressDataRow addressData={sub}/>
             </Fragment>
         );
     }
 
     componentDidMount() {
         AddressDataService.retrieveAllAddressDatas()
+            .then(data => data.data)
+            .then(data => data.map(address => {
+                if (address.category == null) {
+                    address.category = {};
+                }
+                return address;
+            }))
             .then(data => {
                 this.setState({
-                    addressDatas: data.data
+                    addressDatas: data
                 })
             }).catch(error => console.log(error));
     }

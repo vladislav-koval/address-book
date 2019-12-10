@@ -1,18 +1,18 @@
 class User {
     constructor(id, name, secondName, patronymic, street, houseName, apartment, phoneNumber, categoryId, categoryName) {
-        this.id = id;
-        this.name = name;
-        this.secondName = secondName;
-        this.patronymic = patronymic;
+        this.id = id ? id : null;
+        this.name = name ? name : "";
+        this.secondName = secondName ? secondName : "";
+        this.patronymic = patronymic ? patronymic : "";
         this.address = {
-            street: street,
-            houseName: houseName,
-            apartment: apartment
+            street: street ? street : "",
+            houseName: houseName ? houseName : "",
+            apartment: apartment ? apartment : ""
         };
-        this.phoneNumber = phoneNumber;
+        this.phoneNumber = phoneNumber ? phoneNumber : "";
         this.category = {
-            id: categoryId,
-            name: categoryName
+            id: categoryId ? categoryId : null,
+            name: categoryName ? categoryName : null
         };
     }
 }

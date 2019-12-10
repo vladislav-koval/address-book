@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import Portal from "./Portal";
 import {ModalStateContext} from './ModalStateContext';
-import AddUserModal from "./AddUserModal";
+import AddAddressModal from "./AddAddressModal";
 import AddAdminModal from "./AddAdminModal";
 import SearchModal from "./SearchModal";
 import AddCategoryModal from "./AddCategoryModal";
@@ -46,7 +46,7 @@ class Modal extends Component {
 
     createModal(modalName) {
         if (modalName === "addUser") {
-            return <AddUserModal/>;
+            return <AddAddressModal/>;
         } else if (modalName === "addAdmin") {
             return <AddAdminModal/>;
         } else if (modalName === "search") {

@@ -4,10 +4,23 @@ import {API_URL} from "./ApiConstants";
 const AUTH_URL = API_URL + "/auth";
 const USER_NAME_SESSION_ATTRIBUTE_NAME = 'authenticatedUser';
 const USER_NAME_SESSION_ATTRIBUTE_ADMIN_MARKER = 'isAdmin';
+const USER_NAME_SESSION_ATTRIBUTE_TOKEN = 'token';
 
 const ADMIN_AUTHORITY_NAME = "ADMIN";
 
 class AuthenticationService {
+    constructor() {
+        this.initInterceptorIfAvailable();
+    }
+
+    initInterceptorIfAvailable() {
+        let token = this.getToken();
+        if (token) {
+            console.log(token);
+            this.setupAxiosInterceptors(token);
+        }
+    }
+
     executeBasicAuthenticationService(username, password) {
         return axios.get(AUTH_URL,
             {headers: {authorization: this.createBasicAuthToken(username, password)}})
@@ -23,7 +36,9 @@ class AuthenticationService {
         if (userDetails.data.authorities.some(role => role === ADMIN_AUTHORITY_NAME)) {
             sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_ADMIN_MARKER, ".");
         }
-        this.setupAxiosInterceptors(this.createBasicAuthToken(userDetails.data.principal, password))
+        let token = this.createBasicAuthToken(userDetails.data.principal, password);
+        sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_TOKEN, token);
+        this.setupAxiosInterceptors(token)
     }
 
     setupAxiosInterceptors(token) {
@@ -44,6 +59,10 @@ class AuthenticationService {
 
     isUserAdmin() {
         return sessionStorage.getItem(USER_NAME_SESSION_ATTRIBUTE_ADMIN_MARKER);
+    }
+
+    getToken() {
+        return sessionStorage.getItem(USER_NAME_SESSION_ATTRIBUTE_TOKEN);
     }
 
     clearSessionStorage() {

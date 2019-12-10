@@ -3,11 +3,12 @@ import AuthenticationService from "../service/AuthenticationService";
 import AddressDataService from "../service/AddressDataService";
 
 
-class UserRow extends Component {
+class AddressDataRow extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: props.user,
+            addressData: props.addressData,
+            updatedAddressData: {},
             isEdited: false
         };
     }
@@ -19,11 +20,23 @@ class UserRow extends Component {
                     <div title="Редактировать данные">
                         <svg id="check-mark" viewBox="0 0 442.533 442.533" className="phone-book__pencil"
                              onClick={() => {
-                                 AddressDataService.updateData(this.state.user);
-                                 let currentEdited = this.state.isEdited;
-                                 this.setState({
-                                     isEdited: !currentEdited
-                                 })
+                                 AddressDataService.updateData(this.state.updatedAddressData)
+                                     .then(response => {
+                                         if (response.data === "") {
+                                             this.setState({
+                                                 addressData: this.state.updatedAddressData,
+                                                 updatedAddressData: {},
+                                                 isEdited: false
+                                             })
+                                         } else {
+                                             alert(response.data);
+                                             this.setState({
+                                                 updatedAddressData: {},
+                                                 isEdited: false
+                                             })
+                                         }
+                                     });
+
                              }}>
                             <g>
                                 <path d="M434.539,98.499l-38.828-38.828c-5.324-5.328-11.799-7.993-19.41-7.993c-7.618,0-14.093,2.665-19.417,7.993L169.59,247.248
@@ -41,6 +54,7 @@ class UserRow extends Component {
                         <svg id="pencil" viewBox="0 0 528.899 528.899" className="phone-book__pencil" onClick={() => {
                             let currentEdited = this.state.isEdited;
                             this.setState({
+                                updatedAddressData: JSON.parse(JSON.stringify(this.state.addressData)),
                                 isEdited: !currentEdited
                             })
                         }}>
@@ -64,41 +78,41 @@ class UserRow extends Component {
             <Fragment>
                 {this.pencil()}
                 <ul className="subscriber">
-                    <li className="subscriber__item">{this.state.user.name}</li>
-                    <li className="subscriber__item">{this.state.user.secondName}</li>
-                    <li className="subscriber__item">{this.state.user.patronymic}</li>
-                    <li className="subscriber__item">{this.state.user.address.street}</li>
-                    <li className="subscriber__item">{this.state.user.address.houseName}</li>
-                    <li className="subscriber__item">{this.state.user.address.apartment}</li>
-                    <li className="subscriber__item subscriber__item_phone">{this.state.user.phoneNumber}</li>
-                    <li className="subscriber__item">{this.state.user.category.name}</li>
+                    <li className="subscriber__item">{this.state.addressData.name}</li>
+                    <li className="subscriber__item">{this.state.addressData.secondName}</li>
+                    <li className="subscriber__item">{this.state.addressData.patronymic}</li>
+                    <li className="subscriber__item">{this.state.addressData.address.street}</li>
+                    <li className="subscriber__item">{this.state.addressData.address.houseName}</li>
+                    <li className="subscriber__item">{this.state.addressData.address.apartment}</li>
+                    <li className="subscriber__item subscriber__item_phone">{this.state.addressData.phoneNumber}</li>
+                    <li className="subscriber__item">{this.state.addressData.category.name}</li>
                 </ul>
             </Fragment>
         )
     }
 
     editedRow() {
-        //TODO поменять на изменяемый
         return (
 
             <Fragment>
                 {this.pencil()}
                 <ul className="subscriber">
                     <input className="subscriber__item" onChange={this.handleUserChange}
-                           name="name" value={this.state.user.name}/>
+                           name="name" value={this.state.updatedAddressData.name}/>
                     <input className="subscriber__item" onChange={this.handleUserChange}
-                           name="secondName" value={this.state.user.secondName}/>
+                           name="secondName" value={this.state.updatedAddressData.secondName}/>
                     <input className="subscriber__item" onChange={this.handleUserChange}
-                           name="patronymic" value={this.state.user.patronymic}/>
+                           name="patronymic" value={this.state.updatedAddressData.patronymic}/>
                     <input className="subscriber__item" onChange={this.handleAddressChange}
-                           name="street" value={this.state.user.address.street}/>
+                           name="street" value={this.state.updatedAddressData.address.street}/>
                     <input className="subscriber__item" onChange={this.handleAddressChange}
-                           name="houseName" value={this.state.user.address.houseName}/>
+                           name="houseName" value={this.state.updatedAddressData.address.houseName}/>
                     <input className="subscriber__item" onChange={this.handleAddressChange}
-                           name="apartment" value={this.state.user.address.apartment}/>
-                    <input className="subscriber__item subscriber__item_phone"
-                           name="phoneNumber" type="tel" onChange={this.handlePhoneChange} value={this.state.user.phoneNumber}/>
-                    <li className="subscriber__item">{this.state.user.category.name}</li>
+                           name="apartment" value={this.state.updatedAddressData.address.apartment}/>
+                    <input className="subscriber__item subscriber__item_phone" onChange={this.handlePhoneChange}
+                           name="phoneNumber" value={this.state.updatedAddressData.phoneNumber}/>
+                    <input className="subscriber__item" onChange={this.handleCategoryChange}
+                           name="name" value={this.state.updatedAddressData.category.name}/>
                 </ul>
             </Fragment>
         )
@@ -111,10 +125,10 @@ class UserRow extends Component {
              (value[value.length - 1] >= 'А' && value[value.length - 1] <= 'Я') ||
              value.length === 0)
         {
-            let user = this.state.user;
+            let user = this.state.updatedAddressData;
             user[event.target.name] = event.target.value;
             this.setState({
-                user: user
+                updatedAddressData: user
             })
         }
     };
@@ -132,13 +146,20 @@ class UserRow extends Component {
     };
 
     handleAddressChange = (event) => {
-        let user = this.state.user;
+        let user = this.state.updatedAddressData;
         user.address[event.target.name] = event.target.value;
         this.setState({
-            user: user
+            updatedAddressData: user
         })
     };
 
+    handleCategoryChange = (event) => {
+        let user = this.state.updatedAddressData;
+        user.category[event.target.name] = event.target.value;
+        this.setState({
+            updatedAddressData: user
+        })
+    };
 
     selectCurrentRow() {
         return this.state.isEdited ? this.editedRow() : this.defaultRow();
@@ -156,4 +177,4 @@ class UserRow extends Component {
     }
 }
 
-export default UserRow;
+export default AddressDataRow;

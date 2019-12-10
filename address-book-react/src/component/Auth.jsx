@@ -13,6 +13,10 @@ class Auth extends Component {
         };
     }
 
+    componentDidMount() {
+        AuthenticationService.clearSessionStorage();
+    }
+
     handleChange = (event) => {
         if((event.target.value[event.target.value.length - 1]) > 'а' &&
             (event.target.value[event.target.value.length - 1]) < 'я' ||

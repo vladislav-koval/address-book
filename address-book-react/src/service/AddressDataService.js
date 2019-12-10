@@ -9,7 +9,12 @@ class AddressDataService {
     }
 
     updateData(data) {
-        axios.put(ADDRESS_DATAS_URL, data);
+        return axios.put(ADDRESS_DATAS_URL, data);
+    }
+
+    postNewData(data) {
+        console.log(data);
+        return axios.post(ADDRESS_DATAS_URL, data);
     }
 }
 
