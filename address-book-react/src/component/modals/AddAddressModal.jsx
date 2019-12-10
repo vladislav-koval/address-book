@@ -42,6 +42,8 @@ class AddAddressModal extends Component {
             .then((response) => {
                 if (response.data !== "") {
                     alert(response.data)
+                } else {
+                    this.context.toggleState(null)
                 }
             })
     };

@@ -39,6 +39,7 @@ public class AddressDataController {
                 if (updatedCategory == null) {
                     return "Категория не найдена";
                 }
+                data.setCategory(category);
             }
         }
         addressDataRepository.save(data);

@@ -63,7 +63,8 @@ class Header extends Component {
                                     )}
                                 </ModalStateContext.Consumer>
                                 <li className="actions__item"><a href="" className="actions__link">Показать всё</a></li>
-                                <li className="actions__item"><a href="/" className="actions__link">Выход</a></li>
+                                <li className="actions__item"><a href="/" className="actions__link"
+                                                                 onClick={AuthenticationService.logout}>Выход</a></li>
                             </ul>
                         </div>
                     </div>

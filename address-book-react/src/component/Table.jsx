@@ -21,11 +21,14 @@ class Table extends Component {
     componentDidMount() {
         AddressDataService.retrieveAllAddressDatas()
             .then(data => data.data)
-            .then(data => data.map(address => {
-                if (address.category == null) {
-                    address.category = {};
+            .then(data => data.map(addressData => {
+                if (addressData.address == null) {
+                    addressData.address = {};
                 }
-                return address;
+                if (addressData.category == null) {
+                    addressData.category = {};
+                }
+                return addressData;
             }))
             .then(data => {
                 this.setState({
