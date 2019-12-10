@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface AddressDataRepository extends CrudRepository<AddressData, Long> {
+public interface AddressDataRepository extends CrudRepository<AddressData, Long>, AddressDataRepositoryCustom {
     List<AddressData> findAll();
 }

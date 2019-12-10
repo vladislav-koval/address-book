@@ -7,6 +7,8 @@ import com.vkoval.addressbook.entity.category.Category;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -71,6 +73,15 @@ public class AddressDataController {
         }
         addressDataRepository.save(data);
         return null;
+    }
+
+    @GetMapping("/search")
+    public Collection<AddressData> search(AddressData data) {
+        if (data == null) {
+            return Collections.emptyList();
+        }
+
+        return addressDataRepository.findByFilterAddressDataBean(data);
     }
 
     private String validateAddressData(AddressData addressData) {

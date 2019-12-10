@@ -5,9 +5,9 @@ import {ModalStateContext} from './modals/ModalStateContext';
 class Header extends Component {
     static contextType = ModalStateContext;
 
-    toggleModalState = (e, toggleState, state) => {
+    toggleModalState = (e, toggleModalState, state) => {
         e.preventDefault();
-        toggleState(state);
+        toggleModalState(state);
     };
 
     render() {
@@ -15,26 +15,26 @@ class Header extends Component {
         if (AuthenticationService.isUserAdmin()) {
             inner = (
                 <ModalStateContext.Consumer>
-                    {({toggleState}) => (
+                    {({toggleModalState}) => (
                         <ul className="actions">
                             <li className="actions__item">
                                 <a href="" className="actions__link"
                                    onClick={(e) =>
-                                       this.toggleModalState(e, toggleState, "addUser")}>
+                                       this.toggleModalState(e, toggleModalState, "addUser")}>
                                     Добавить абонента
                                 </a>
                             </li>
                             <li className="actions__item">
                                 <a href="" className="actions__link"
                                    onClick={(e) =>
-                                       this.toggleModalState(e, toggleState, "addCategory")}>
+                                       this.toggleModalState(e, toggleModalState, "addCategory")}>
                                     Добавить категорию
                                 </a>
                             </li>
                             <li className="actions__item">
                                 <a href="" className="actions__link"
                                    onClick={(e) =>
-                                       this.toggleModalState(e, toggleState, "addAdmin")}>
+                                       this.toggleModalState(e, toggleModalState, "addAdmin")}>
                                     Добавить администратора
                                 </a>
                             </li>
@@ -52,11 +52,11 @@ class Header extends Component {
                             {inner}
                             <ul className="actions">
                                 <ModalStateContext.Consumer>
-                                    {({toggleState}) => (
+                                    {({toggleModalState}) => (
                                         <li className="actions__item">
                                             <a href="" className="actions__link"
                                                onClick={(e) =>
-                                                   this.toggleModalState(e, toggleState, "search")}>
+                                                   this.toggleModalState(e, toggleModalState, "search")}>
                                                 Поиск
                                             </a>
                                         </li>

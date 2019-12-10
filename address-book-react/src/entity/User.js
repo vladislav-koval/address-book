@@ -12,7 +12,7 @@ class User {
         this.phoneNumber = phoneNumber ? phoneNumber : "";
         this.category = {
             id: categoryId ? categoryId : null,
-            name: categoryName ? categoryName : null
+            name: categoryName ? categoryName : ""
         };
     }
 }

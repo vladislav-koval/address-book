@@ -18,7 +18,7 @@ class Modal extends Component {
     render() {
 
         return <ModalStateContext.Consumer>
-            {({modalState, toggleState}) => {
+            {({modalState, toggleModalState}) => {
                 if (!modalState) {
                     return "";
                 } else {
@@ -28,7 +28,7 @@ class Modal extends Component {
                                 <div className="modal">
                                     <div className="modal__dialog">
                                         <button className="modal__close" type="button"
-                                                onClick={() => toggleState(null)}>
+                                                onClick={() => toggleModalState(null)}>
                                             <img src={CloseButtonImage} alt="Close"/>
                                         </button>
                                         {this.createModal(modalState)}

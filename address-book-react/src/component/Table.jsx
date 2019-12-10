@@ -1,8 +1,11 @@
 import React, {Component, Fragment} from "react";
 import AddressDataRow from "./AddressDataRow";
 import AddressDataService from "../service/AddressDataService";
+import {FilterBeanContext} from "./modals/FilterBeanContext";
 
 class Table extends Component {
+    static contextType = FilterBeanContext;
+
     constructor(props) {
         super(props);
         this.state = {
@@ -19,7 +22,7 @@ class Table extends Component {
     }
 
     componentDidMount() {
-        AddressDataService.retrieveAllAddressDatas()
+        AddressDataService.retrieveDataFiltered(this.context.filterBean)
             .then(data => data.data)
             .then(data => data.map(addressData => {
                 if (addressData.address == null) {

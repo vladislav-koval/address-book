@@ -58,7 +58,7 @@ class AddAddressModal extends Component {
                 if (response.data !== "") {
                     alert(response.data)
                 } else {
-                    this.context.toggleState(null);
+                    this.context.toggleModalState(null);
                     window.location.reload();
                 }
             })
