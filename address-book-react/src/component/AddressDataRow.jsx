@@ -120,7 +120,7 @@ class AddressDataRow extends Component {
 
     handleUserChange = (event) => {
         const value = event.target.value;
-        alert(value[value.length - 1]);
+
          if ((value[value.length - 1] >= 'а' && value[value.length - 1] <= 'я') ||
              (value[value.length - 1] >= 'А' && value[value.length - 1] <= 'Я') ||
              value.length === 0)
@@ -130,7 +130,9 @@ class AddressDataRow extends Component {
             this.setState({
                 updatedAddressData: user
             })
-        }
+        } else {
+             alert('ФИО абонента может содержать только кириллицу!')
+         }
     };
 
     handlePhoneChange = (event) => {
@@ -142,6 +144,9 @@ class AddressDataRow extends Component {
             this.setState({
                 user: user
             })
+        }
+        else {
+            alert('Номер телефона должен состоять только из цифр')
         }
     };
 

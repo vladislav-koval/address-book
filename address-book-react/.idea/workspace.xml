@@ -1,19 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e27b27de-f088-4dd2-80be-1fd96fba24a0" name="Default Changelist" comment="added default user authorization. Fixed security. Implemented address change">
-      <change afterPath="$PROJECT_DIR$/../address-book-java/src/main/java/com/vkoval/addressbook/controller/CategoryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../address-book-java/src/main/java/com/vkoval/addressbook/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/CategoryService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../address-book-java/src/main/java/com/vkoval/addressbook/controller/AddressDataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../address-book-java/src/main/java/com/vkoval/addressbook/controller/AddressDataController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="e27b27de-f088-4dd2-80be-1fd96fba24a0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/Table.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Table.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/modals/AddAddressModal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/modals/AddAddressModal.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/modals/AddAdminModal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/modals/AddAdminModal.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/modals/AddCategoryModal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/modals/AddCategoryModal.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/UserService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/UserService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/AddressDataRow.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/AddressDataRow.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/modals/SearchModal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/modals/SearchModal.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +43,7 @@
       <recent name="C:\Users\nn_ge\IdeaProjects\address-book\address-book-react\src\component" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.DEBUG">
+  <component name="RunManager" selected="npm.start">
     <configuration name="DEBUG" type="JavascriptDebugType" uri="http://localhost:3000/">
       <method v="2" />
     </configuration>
@@ -168,24 +159,28 @@
       <screen x="1920" y="0" width="1680" height="1050" />
     </state>
     <state x="2020" y="98" width="1480" height="852" key="DiffContextDialog/67.27.1853.1053/1920.0.1680.1050@1920.0.1680.1050" timestamp="1575972406620" />
-    <state width="1657" height="342" key="GridCell.Tab.0.bottom" timestamp="1576013634502">
-      <screen x="1920" y="0" width="1680" height="1050" />
+    <state width="1345" height="158" key="GridCell.Tab.0.bottom" timestamp="1576013981579">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state width="1345" height="158" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1576013981579" />
     <state width="1899" height="347" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1575912233476" />
     <state width="1657" height="342" key="GridCell.Tab.0.bottom/67.27.1853.1053/1920.0.1680.1050@1920.0.1680.1050" timestamp="1576013634502" />
-    <state width="1657" height="342" key="GridCell.Tab.0.center" timestamp="1576013634502">
-      <screen x="1920" y="0" width="1680" height="1050" />
+    <state width="1345" height="158" key="GridCell.Tab.0.center" timestamp="1576013981578">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state width="1345" height="158" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1576013981578" />
     <state width="1899" height="347" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1575912233476" />
     <state width="1657" height="342" key="GridCell.Tab.0.center/67.27.1853.1053/1920.0.1680.1050@1920.0.1680.1050" timestamp="1576013634502" />
-    <state width="1657" height="342" key="GridCell.Tab.0.left" timestamp="1576013634502">
-      <screen x="1920" y="0" width="1680" height="1050" />
+    <state width="1345" height="158" key="GridCell.Tab.0.left" timestamp="1576013981578">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state width="1345" height="158" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1576013981578" />
     <state width="1899" height="347" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1575912233476" />
     <state width="1657" height="342" key="GridCell.Tab.0.left/67.27.1853.1053/1920.0.1680.1050@1920.0.1680.1050" timestamp="1576013634502" />
-    <state width="1657" height="342" key="GridCell.Tab.0.right" timestamp="1576013634502">
-      <screen x="1920" y="0" width="1680" height="1050" />
+    <state width="1345" height="158" key="GridCell.Tab.0.right" timestamp="1576013981579">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state width="1345" height="158" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1576013981579" />
     <state width="1899" height="347" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1575912233476" />
     <state width="1657" height="342" key="GridCell.Tab.0.right/67.27.1853.1053/1920.0.1680.1050@1920.0.1680.1050" timestamp="1576013634502" />
     <state width="1657" height="342" key="GridCell.Tab.1.bottom" timestamp="1576013634438">
