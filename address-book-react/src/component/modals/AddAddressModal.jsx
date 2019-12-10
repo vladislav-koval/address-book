@@ -37,6 +37,21 @@ class AddAddressModal extends Component {
         })
     };
 
+    handlePhoneChange = (event) => {
+        const value = event.target.value;
+        if ((value[value.length - 1] >= 0 && value[value.length - 1] <= 9 && value.length <= 12) || value.length === 0)
+        {
+            let user = this.state.user;
+            user[event.target.name] = event.target.value;
+            this.setState({
+                user: user
+            })
+        }
+        else {
+            alert('Номер телефона должен состоять только из цифр')
+        }
+    };
+
     saveNewAddress = () => {
         AddressDataService.postNewData(this.state.user)
             .then((response) => {
@@ -84,7 +99,7 @@ class AddAddressModal extends Component {
                     <label htmlFor="apartment" className="form__label">Квартира</label>
                 </div>
                 <div className="form__group">
-                    <input type="text" id="number" className="form__input" onChange={this.handleUserChange}
+                    <input type="text" id="number" className="form__input" onChange={this.handlePhoneChange}
                            name="phoneNumber" value={this.state.user.phoneNumber} required/>
                     <label htmlFor="number" className="form__label">Номер</label>
                 </div>
