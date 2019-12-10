@@ -6,7 +6,7 @@ import javax.persistence.Embeddable;
 
 @Data
 @Embeddable
-class Address {
+public class Address {
     private String street;
     private String houseName;
     private String apartment;

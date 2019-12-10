@@ -3,7 +3,7 @@ package com.vkoval.addressbook.entity.user;
 import org.springframework.lang.Nullable;
 import org.springframework.security.core.GrantedAuthority;
 
-enum Role implements GrantedAuthority {
+public enum Role implements GrantedAuthority {
     ADMIN(1),
     USER(0);
 
@@ -27,7 +27,7 @@ enum Role implements GrantedAuthority {
         return dbId;
     }
 
-    //    @Override
+    @Override
     public String getAuthority() {
         return toString();
     }

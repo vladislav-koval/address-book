@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react'
-import env from "../env";
+import AuthenticationService from "../service/AuthenticationService";
 import {ModalStateContext} from './modals/ModalStateContext';
 
 class Header extends Component {
@@ -12,7 +12,7 @@ class Header extends Component {
 
     render() {
         let inner;
-        if (env.isAdmin) {
+        if (AuthenticationService.isUserAdmin()) {
             inner = (
                 <ModalStateContext.Consumer>
                     {({toggleState}) => (

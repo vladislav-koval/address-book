@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from "react";
 import UserRow from "./UserRow";
-import ApiService from "../service/ApiService";
+import ApiService from "../service/UserService";
 
 class Table extends Component {
     constructor(props) {

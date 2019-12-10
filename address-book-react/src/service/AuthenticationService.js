@@ -1,22 +1,29 @@
 import axios from 'axios';
+import {API_URL} from "./ApiConstants";
 
-const API_URL = 'http://localhost:8080';
 const AUTH_URL = API_URL + "/auth";
-export const USER_NAME_SESSION_ATTRIBUTE_NAME = 'authenticatedUser'
+const USER_NAME_SESSION_ATTRIBUTE_NAME = 'authenticatedUser';
+const USER_NAME_SESSION_ATTRIBUTE_ADMIN_MARKER = 'isAdmin';
+
+const ADMIN_AUTHORITY_NAME = "ADMIN";
 
 class AuthenticationService {
     executeBasicAuthenticationService(username, password) {
-        return axios.get(`AUTH_URL`,
-            { headers: { authorization: this.createBasicAuthToken(username, password) } })
+        return axios.get(AUTH_URL,
+            {headers: {authorization: this.createBasicAuthToken(username, password)}})
     }
 
     createBasicAuthToken(username, password) {
         return 'Basic ' + window.btoa(username + ":" + password)
     }
 
-    registerSuccessfulLogin(username, password) {
-        sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_NAME, username);
-        this.setupAxiosInterceptors(this.createBasicAuthToken(username, password))
+    registerSuccessfulLogin(userDetails, password) {
+        this.clearSessionStorage();
+        sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_NAME, userDetails.data.principal);
+        if (userDetails.data.authorities.some(role => role === ADMIN_AUTHORITY_NAME)) {
+            sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_ADMIN_MARKER, ".");
+        }
+        this.setupAxiosInterceptors(this.createBasicAuthToken(userDetails.username, password))
     }
 
     setupAxiosInterceptors(token) {
@@ -35,15 +42,16 @@ class AuthenticationService {
         return user !== null;
     }
 
-    getLoggedInUserName() {
-        let user = sessionStorage.getItem(USER_NAME_SESSION_ATTRIBUTE_NAME);
-        if (user === null) return '';
-        return user
+    isUserAdmin() {
+        return sessionStorage.getItem(USER_NAME_SESSION_ATTRIBUTE_ADMIN_MARKER);
     }
 
+    clearSessionStorage() {
+        sessionStorage.clear();
+    }
 
     logout() {
-        sessionStorage.removeItem(USER_NAME_SESSION_ATTRIBUTE_NAME);
+        this.clearSessionStorage()
     }
 }
 

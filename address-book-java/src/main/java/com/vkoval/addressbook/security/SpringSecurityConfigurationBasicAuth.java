@@ -32,18 +32,30 @@ public class SpringSecurityConfigurationBasicAuth extends WebSecurityConfigurerA
                 .and()
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                // Make H2-Console non-secured; for debug purposes
+                .antMatchers("/h2-console/**").permitAll()
+                .antMatchers("/auth").permitAll()
+                .antMatchers("/rest/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET, "/rest/**").hasRole("USER")
                 .anyRequest().authenticated()
                 .and()
-                .httpBasic();
+                .httpBasic()
+
+                // Allow pages to be loaded in frames from the same origin; needed for H2-Console
+                .and()
+                .headers()
+                .frameOptions()
+                .sameOrigin();
     }
 
     @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+    protected void configure(AuthenticationManagerBuilder auth) {
+/*
         auth.inMemoryAuthentication()
                 .withUser("admin").password("{noop}admin").roles("ADMIN")
                 .and()
                 .withUser("user").password("{noop}user").roles("USER");
+*/
 
         auth.authenticationProvider(basicAuthenticationProvider);
     }

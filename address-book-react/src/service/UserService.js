@@ -1,6 +1,6 @@
 const USER_API_BASE_URL = 'http://localhost:8080/users';
 
-class ApiService {
+class UserService {
 
     fetchUsers() {
         // return axios.get(USER_API_BASE_URL);
@@ -85,4 +85,4 @@ class ApiService {
 
 }
 
-export default new ApiService();
+export default new UserService();

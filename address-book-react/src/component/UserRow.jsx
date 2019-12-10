@@ -1,5 +1,6 @@
 import React, {Component, Fragment} from "react";
-import env from "../env";
+import AuthenticationService from "../service/AuthenticationService";
+
 
 class UserRow extends Component {
     constructor(props) {
@@ -11,7 +12,7 @@ class UserRow extends Component {
     }
 
     pencil() {
-        if (env.isAdmin) {
+        if (AuthenticationService.isUserAdmin()) {
             if (this.state.isEdited) {
                 return (
                     <div title="Редактировать данные">
@@ -88,7 +89,8 @@ class UserRow extends Component {
                     <li className="subscriber__item" contentEditable="true">{this.user.street}</li>
                     <li className="subscriber__item" contentEditable="true">{this.user.home}</li>
                     <li className="subscriber__item" contentEditable="true">{this.user.apartment}</li>
-                    <li className="subscriber__item subscriber__item_phone" contentEditable="true">{this.user.number}</li>
+                    <li className="subscriber__item subscriber__item_phone"
+                        contentEditable="true">{this.user.number}</li>
                     <li className="subscriber__item" contentEditable="true">{this.user.category.name}</li>
                 </ul>
             </Fragment>

@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import AuthenticationService from "../service/AuthenticationService";
 
 class Auth extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: 'in28minutes',
+            username: '',
             password: '',
         };
         this.handleChange = this.handleChange.bind(this);
@@ -23,11 +23,11 @@ class Auth extends Component {
     loginClicked() {
         AuthenticationService
             .executeBasicAuthenticationService(this.state.username, this.state.password)
-            .then(() => {
-                AuthenticationService.registerSuccessfulLogin(this.state.username, this.state.password)
+            .then((authDetails) => {
+                AuthenticationService.registerSuccessfulLogin(authDetails)
                 this.props.history.push(`/courses`)
             }).catch(() => {
-            this.setState({ password: '' });
+            this.setState({password: ''});
         })
     }
 
@@ -36,7 +36,7 @@ class Auth extends Component {
             <div className="container-center">
                 <div id="slider">
                     <div className="slider__item">
-                        <form className="form show" name="form-admin">
+                        <div className="form show">
                             <h2 className="form__title">Авторизация</h2>
                             <div className="form__group">
                                 <input type="text" id="login" name="username" className="form__input js-login"
@@ -51,14 +51,16 @@ class Auth extends Component {
                                 <label htmlFor="pass" className="form__label">Пароль</label>
                             </div>
 
-                            <input className="form__button js-sub" type="submit" value="Войти"/>
-                        </form>
+                            <input className="form__button js-sub" type="submit" onClick={this.loginClicked}
+                                   value="Войти"/>
+                        </div>
                     </div>
                     <div className="slider__item">
-                        <form className="form" name="form-user">
+                        <div className="form">
                             <h2 className="form__title">Авторизация</h2>
-                            <input type="submit" className="form__button center" value="Войти"/>
-                        </form>
+                            <input type="submit" onClick={this.loginClicked} className="form__button center"
+                                   value="Войти"/>
+                        </div>
                     </div>
                 </div>
             </div>

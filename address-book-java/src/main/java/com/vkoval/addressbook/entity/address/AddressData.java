@@ -1,5 +1,6 @@
 package com.vkoval.addressbook.entity.address;
 
+import com.vkoval.addressbook.entity.category.Category;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -18,6 +19,8 @@ public class AddressData {
     private String patronymic;
     @Embedded
     private Address address;
-    @Embedded
-    private PhoneNumber phoneNumber;
+    @Column
+    private String  phoneNumber;
+    @ManyToOne
+    private Category category;
 }
