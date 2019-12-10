@@ -1,12 +1,13 @@
 import React, {Component, Fragment} from "react";
 import AuthenticationService from "../service/AuthenticationService";
+import AddressDataService from "../service/AddressDataService";
 
 
 class UserRow extends Component {
     constructor(props) {
         super(props);
-        this.user = props.user;
         this.state = {
+            user: props.user,
             isEdited: false
         };
     }
@@ -18,7 +19,7 @@ class UserRow extends Component {
                     <div title="Редактировать данные">
                         <svg id="check-mark" viewBox="0 0 442.533 442.533" className="phone-book__pencil"
                              onClick={() => {
-                                 console.log(this.user.name);
+                                 AddressDataService.updateData(this.state.user);
                                  let currentEdited = this.state.isEdited;
                                  this.setState({
                                      isEdited: !currentEdited
@@ -63,14 +64,14 @@ class UserRow extends Component {
             <Fragment>
                 {this.pencil()}
                 <ul className="subscriber">
-                    <li className="subscriber__item">{this.user.name}</li>
-                    <li className="subscriber__item">{this.user.surname}</li>
-                    <li className="subscriber__item">{this.user.lastName}</li>
-                    <li className="subscriber__item">{this.user.street}</li>
-                    <li className="subscriber__item">{this.user.home}</li>
-                    <li className="subscriber__item">{this.user.apartment}</li>
-                    <li className="subscriber__item subscriber__item_phone">{this.user.number}</li>
-                    <li className="subscriber__item">{this.user.category.name}</li>
+                    <li className="subscriber__item">{this.state.user.name}</li>
+                    <li className="subscriber__item">{this.state.user.secondName}</li>
+                    <li className="subscriber__item">{this.state.user.patronymic}</li>
+                    <li className="subscriber__item">{this.state.user.address.street}</li>
+                    <li className="subscriber__item">{this.state.user.address.houseName}</li>
+                    <li className="subscriber__item">{this.state.user.address.apartment}</li>
+                    <li className="subscriber__item subscriber__item_phone">{this.state.user.phoneNumber}</li>
+                    <li className="subscriber__item">{this.state.user.category.name}</li>
                 </ul>
             </Fragment>
         )
@@ -83,19 +84,42 @@ class UserRow extends Component {
             <Fragment>
                 {this.pencil()}
                 <ul className="subscriber">
-                    <li className="subscriber__item" contentEditable="true">{this.user.name}</li>
-                    <li className="subscriber__item" contentEditable="true">{this.user.surname}</li>
-                    <li className="subscriber__item" contentEditable="true">{this.user.lastName}</li>
-                    <li className="subscriber__item" contentEditable="true">{this.user.street}</li>
-                    <li className="subscriber__item" contentEditable="true">{this.user.home}</li>
-                    <li className="subscriber__item" contentEditable="true">{this.user.apartment}</li>
-                    <li className="subscriber__item subscriber__item_phone"
-                        contentEditable="true">{this.user.number}</li>
-                    <li className="subscriber__item" contentEditable="true">{this.user.category.name}</li>
+                    <input className="subscriber__item" onChange={this.handleUserChange}
+                           name="name" value={this.state.user.name}/>
+                    <input className="subscriber__item" onChange={this.handleUserChange}
+                           name="secondName" value={this.state.user.secondName}/>
+                    <input className="subscriber__item" onChange={this.handleUserChange}
+                           name="patronymic" value={this.state.user.patronymic}/>
+                    <input className="subscriber__item" onChange={this.handleAddressChange}
+                           name="street" value={this.state.user.address.street}/>
+                    <input className="subscriber__item" onChange={this.handleAddressChange}
+                           name="houseName" value={this.state.user.address.houseName}/>
+                    <input className="subscriber__item" onChange={this.handleAddressChange}
+                           name="apartment" value={this.state.user.address.apartment}/>
+                    <input className="subscriber__item subscriber__item_phone"
+                           name="phoneNumber" onChange={this.handleUserChange} value={this.state.user.phoneNumber}/>
+                    <li className="subscriber__item">{this.state.user.category.name}</li>
                 </ul>
             </Fragment>
         )
     }
+
+    handleUserChange = (event) => {
+        let user = this.state.user;
+        user[event.target.name] = event.target.value;
+        this.setState({
+            user: user
+        })
+    };
+
+    handleAddressChange = (event) => {
+        let user = this.state.user;
+        user.address[event.target.name] = event.target.value;
+        this.setState({
+            user: user
+        })
+    };
+
 
     selectCurrentRow() {
         return this.state.isEdited ? this.editedRow() : this.defaultRow();

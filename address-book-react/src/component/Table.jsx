@@ -1,21 +1,30 @@
 import React, {Component, Fragment} from "react";
 import UserRow from "./UserRow";
-import ApiService from "../service/UserService";
+import AddressDataService from "../service/AddressDataService";
 
 class Table extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            subscribers: ApiService.fetchUsers()
+            addressDatas: []
         }
     }
 
     renderSubs() {
-        return this.state.subscribers.map(sub =>
+        return this.state.addressDatas.map(sub =>
             <Fragment key={sub.id}>
                 <UserRow user={sub}/>
             </Fragment>
         );
+    }
+
+    componentDidMount() {
+        AddressDataService.retrieveAllAddressDatas()
+            .then(data => {
+                this.setState({
+                    addressDatas: data.data
+                })
+            }).catch(error => console.log(error));
     }
 
     render() {

@@ -23,14 +23,14 @@ class AuthenticationService {
         if (userDetails.data.authorities.some(role => role === ADMIN_AUTHORITY_NAME)) {
             sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_ADMIN_MARKER, ".");
         }
-        this.setupAxiosInterceptors(this.createBasicAuthToken(userDetails.username, password))
+        this.setupAxiosInterceptors(this.createBasicAuthToken(userDetails.data.principal, password))
     }
 
     setupAxiosInterceptors(token) {
         axios.interceptors.request.use(
             (config) => {
                 if (this.isUserLoggedIn()) {
-                    config.headers.authorization = token
+                    config.headers.Authorization = token
                 }
                 return config
             }

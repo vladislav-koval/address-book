@@ -4,6 +4,7 @@ class UserService {
 
     fetchUsers() {
         // return axios.get(USER_API_BASE_URL);
+/*
         return [
             {
                 id: 1,
@@ -62,6 +63,7 @@ class UserService {
                 }
             }
         ]
+*/
     }
 
     /*

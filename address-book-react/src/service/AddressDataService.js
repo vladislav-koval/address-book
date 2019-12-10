@@ -7,6 +7,10 @@ class AddressDataService {
     retrieveAllAddressDatas() {
         return axios.get(ADDRESS_DATAS_URL);
     }
+
+    updateData(data) {
+        axios.put(ADDRESS_DATAS_URL, data);
+    }
 }
 
 export default new AddressDataService();

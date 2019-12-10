@@ -35,9 +35,8 @@ public class SpringSecurityConfigurationBasicAuth extends WebSecurityConfigurerA
                 // Make H2-Console non-secured; for debug purposes
                 .antMatchers("/h2-console/**").permitAll()
                 .antMatchers("/auth").permitAll()
-                .antMatchers("/rest/**").hasRole("ADMIN")
-                .antMatchers(HttpMethod.GET, "/rest/**").hasRole("USER")
-                .anyRequest().authenticated()
+                .antMatchers(HttpMethod.GET, "/**").hasAnyAuthority("ADMIN", "USER")
+                .antMatchers("/**").hasAuthority("ADMIN")
                 .and()
                 .httpBasic()
 
