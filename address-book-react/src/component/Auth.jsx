@@ -24,7 +24,7 @@ class Auth extends Component {
         AuthenticationService
             .executeBasicAuthenticationService(this.state.username, this.state.password)
             .then((authDetails) => {
-                AuthenticationService.registerSuccessfulLogin(authDetails)
+                AuthenticationService.registerSuccessfulLogin(authDetails);
                 this.props.history.push(`/courses`)
             }).catch(() => {
             this.setState({password: ''});
