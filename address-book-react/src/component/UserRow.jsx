@@ -97,7 +97,7 @@ class UserRow extends Component {
                     <input className="subscriber__item" onChange={this.handleAddressChange}
                            name="apartment" value={this.state.user.address.apartment}/>
                     <input className="subscriber__item subscriber__item_phone"
-                           name="phoneNumber" onChange={this.handleUserChange} value={this.state.user.phoneNumber}/>
+                           name="phoneNumber" type="tel" onChange={this.handlePhoneChange} value={this.state.user.phoneNumber}/>
                     <li className="subscriber__item">{this.state.user.category.name}</li>
                 </ul>
             </Fragment>
@@ -105,11 +105,30 @@ class UserRow extends Component {
     }
 
     handleUserChange = (event) => {
-        let user = this.state.user;
-        user[event.target.name] = event.target.value;
-        this.setState({
-            user: user
-        })
+        const value = event.target.value;
+        alert(value[value.length - 1]);
+         if ((value[value.length - 1] >= 'а' && value[value.length - 1] <= 'я') ||
+             (value[value.length - 1] >= 'А' && value[value.length - 1] <= 'Я') ||
+             value.length === 0)
+        {
+            let user = this.state.user;
+            user[event.target.name] = event.target.value;
+            this.setState({
+                user: user
+            })
+        }
+    };
+
+    handlePhoneChange = (event) => {
+        const value = event.target.value;
+        if ((value[value.length - 1] >= 0 && value[value.length - 1] <= 9 && value.length < 12) || value.length === 0)
+        {
+            let user = this.state.user;
+            user[event.target.name] = event.target.value;
+            this.setState({
+                user: user
+            })
+        }
     };
 
     handleAddressChange = (event) => {

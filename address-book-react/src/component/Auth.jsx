@@ -14,7 +14,7 @@ class Auth extends Component {
     }
 
     handleChange = (event) => {
-        if((event.target.value[event.target.value.length - 1]) > 'a' &&
+        if((event.target.value[event.target.value.length - 1]) > 'а' &&
             (event.target.value[event.target.value.length - 1]) < 'я' ||
             (event.target.value[event.target.value.length - 1]) === 'ё')
             return;

@@ -342,7 +342,7 @@ ul {
     width: 100%;
     max-width: 400px;
     position: relative;
-    margin: 0 auto;
+    margin: auto;
 }
 .modal__close {
     width: 34px;
