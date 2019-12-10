@@ -14,6 +14,10 @@ class Auth extends Component {
     }
 
     handleChange = (event) => {
+        if((event.target.value[event.target.value.length - 1]) > 'a' &&
+            (event.target.value[event.target.value.length - 1]) < 'я' ||
+            (event.target.value[event.target.value.length - 1]) === 'ё')
+            return;
         this.setState(
             {
                 [event.target.name]: event.target.value
@@ -29,6 +33,7 @@ class Auth extends Component {
                 this.props.history.push(`/courses`)
             }).catch(() => {
             this.setState({password: ''});
+            alert("Неверный логин или пароль");
         })
     };
 
