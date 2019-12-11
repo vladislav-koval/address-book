@@ -1,9 +1,9 @@
 package com.vkoval.addressbook.dao;
 
+import com.vkoval.addressbook.controller.AddressDataFilterBean;
 import com.vkoval.addressbook.entity.address.Address;
 import com.vkoval.addressbook.entity.address.AddressData;
 import com.vkoval.addressbook.entity.category.Category;
-import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
 import javax.persistence.EntityManager;
@@ -18,7 +18,7 @@ public class AddressDataRepositoryCustomImpl implements AddressDataRepositoryCus
     private EntityManager entityManager;
 
     @Override
-    public Collection<AddressData> findByFilterAddressDataBean(AddressData filterBean) {
+    public Collection<AddressData> findByFilterAddressDataBean(AddressDataFilterBean filterBean) {
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<AddressData> query = cb.createQuery(AddressData.class);
 
@@ -36,28 +36,22 @@ public class AddressDataRepositoryCustomImpl implements AddressDataRepositoryCus
         if (!StringUtils.isEmpty(filterBean.getPatronymic())) {
             predicates.add(cb.equal(addressData.get("patronymic"), filterBean.getPatronymic()));
         }
-        if (filterBean.getAddress() != null) {
-            if (!StringUtils.isEmpty(filterBean.getAddress().getStreet())) {
-                predicates.add(cb.equal(addressPath.get("street"), filterBean.getAddress().getStreet()));
-            }
-            if (!StringUtils.isEmpty(filterBean.getAddress().getHouseName())) {
-                predicates.add(cb.equal(addressPath.get("houseName"), filterBean.getAddress().getHouseName()));
-            }
-            if (!StringUtils.isEmpty(filterBean.getAddress().getApartment())) {
-                predicates.add(cb.equal(addressPath.get("apartment"), filterBean.getAddress().getApartment()));
-            }
+        if (!StringUtils.isEmpty(filterBean.getAddressStreet())) {
+            predicates.add(cb.equal(addressPath.get("street"), filterBean.getAddressStreet()));
+        }
+        if (!StringUtils.isEmpty(filterBean.getAddressHouseName())) {
+            predicates.add(cb.equal(addressPath.get("houseName"), filterBean.getAddressHouseName()));
+        }
+        if (!StringUtils.isEmpty(filterBean.getAddressApartment())) {
+            predicates.add(cb.equal(addressPath.get("apartment"), filterBean.getAddressApartment()));
         }
         if (!StringUtils.isEmpty(filterBean.getPhoneNumber())) {
             predicates.add(cb.equal(addressData.get("phoneNumber"), filterBean.getPhoneNumber()));
         }
-        Category category = filterBean.getCategory();
-        if (category != null) {
-            if (category.getId() != null) {
-                predicates.add(cb.equal(categoryPath.get("id"), category.getId()));
-            } else if (!StringUtils.isEmpty(category.getName())) {
-                predicates.add(cb.equal(categoryPath.get("name"), category.getName()));
-            }
+        if (!StringUtils.isEmpty(filterBean.getCategoryName())) {
+            predicates.add(cb.equal(categoryPath.get("name"), filterBean.getCategoryName()));
         }
+
         query.select(addressData)
                 .where(cb.and(predicates.toArray(new Predicate[0])));
         return entityManager.createQuery(query).getResultList();

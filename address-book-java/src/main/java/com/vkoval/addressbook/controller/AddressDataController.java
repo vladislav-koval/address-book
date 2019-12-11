@@ -76,9 +76,9 @@ public class AddressDataController {
     }
 
     @GetMapping("/search")
-    public Collection<AddressData> search(AddressData data) {
+    public Collection<AddressData> search(AddressDataFilterBean data) {
         if (data == null) {
-            return Collections.emptyList();
+            return addressDataRepository.findAll();
         }
 
         return addressDataRepository.findByFilterAddressDataBean(data);

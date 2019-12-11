@@ -1,9 +1,9 @@
 import React from 'react';
-import User from "../../entity/User";
+import FilterBean from "../../entity/FilterBean";
 
 export const FilterBeanContext = React.createContext(
     {
-        filterBean: new User(),
+        filterBean: new FilterBean(),
         toggleFilterState: () => {
         }
     }

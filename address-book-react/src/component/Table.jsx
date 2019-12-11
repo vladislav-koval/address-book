@@ -1,7 +1,7 @@
-import React, {Component, Fragment} from "react";
+import React, { Component, Fragment } from "react";
 import AddressDataRow from "./AddressDataRow";
 import AddressDataService from "../service/AddressDataService";
-import {FilterBeanContext} from "./modals/FilterBeanContext";
+import { FilterBeanContext } from "./modals/FilterBeanContext";
 
 class Table extends Component {
     static contextType = FilterBeanContext;
@@ -9,8 +9,13 @@ class Table extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            addressDatas: []
+            addressDatas: [],
+            filter: props.filterState.filterBean
         }
+    }
+
+    componentWillReceiveProps({ filterState }) {
+        this.setState({ filter: filterState.filterBean }, this.fetchAddressDatas);
     }
 
     renderSubs() {
@@ -22,7 +27,11 @@ class Table extends Component {
     }
 
     componentDidMount() {
-        AddressDataService.retrieveDataFiltered(this.context.filterBean)
+        this.fetchAddressDatas();
+    }
+
+    fetchAddressDatas = () => {
+        AddressDataService.retrieveDataFiltered(this.state.filter)
             .then(data => data.data)
             .then(data => data.map(addressData => {
                 if (addressData.address == null) {
@@ -38,7 +47,8 @@ class Table extends Component {
                     addressDatas: data
                 })
             }).catch(error => console.log(error));
-    }
+
+    };
 
     render() {
         return (

@@ -1,6 +1,6 @@
 import axios from 'axios';
-import {REST_URL} from "./ApiConstants";
-import {stringify} from "query-string";
+import { REST_URL } from "./ApiConstants";
+import { stringify } from "query-string";
 
 
 const ADDRESS_DATAS_URL = `${REST_URL}/addressDatas`;
@@ -11,11 +11,7 @@ class AddressDataService {
     }
 
     retrieveDataFiltered(filterBean) {
-        filterBean.address = JSON.stringify(filterBean.address);
-        filterBean.category = JSON.stringify(filterBean.category);
-        let params = stringify(filterBean, {
-            skipNull: true
-        });
+        let params = stringify(filterBean);
 
         return axios.get(`${REST_URL}/search?${params}`);
     }
